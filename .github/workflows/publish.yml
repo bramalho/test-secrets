@@ -1,0 +1,10 @@
+name: test-secrets
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo ${{ secrets.MY_SECRET }}
+      - run: echo ${{ secrets.MY_SECRET }} | cut -c -15
+      - run: echo ${{ secrets.MY_SECRET }} | cut -c 15-
